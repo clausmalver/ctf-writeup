@@ -1,4 +1,6 @@
-This was my first CTF challenge and even more my first write up. This document will be continued to be worked until all the challenges have sufficient information in them :)
+This was my first CTF challenge and even more my first write up.
+Some of it are just random notes written down while doing the challenges and aren't anywhere near completion others are full writeups so it's possible to understand which step are required to solve the challenges. I've learned a lot about CTF and also about writing documentation so it is possible for others to understand what I've done. 
+
 # Huntress CTF Oktober 2023
 ## Book by its cover:
 "They say you aren't supposed to judge a book by its cover, but this is one of my favorites!"
@@ -89,12 +91,13 @@ We can now open the file and it reveals a QR code. Scan it with a phone and fetc
 "During the MOVEit Transfer exploitation, there were tons of "indicators of compromise" hashes available for the `human2.aspx` webshell! We collected a lot of them, but they all look very similar... except for very minor differences. Can you find an oddity?"
 
 Steps:
+```bash
 grep '(!String.Equals(pass,' * -R
 subl cc53495bb42e4f6563b68cdbdd5e4c2a9119b498b488f53c0f281d751a368f19
 get string:
 	if (!String.Equals(pass, "666c6167-7b36-6365-3666-366131356464"+"64623065-6262-3333-3262-666166326230"+"62383564-317d-0000-0000-000000000000"))
 From hex: 666c6167-7b36-6365-3666-36613135646464623065-6262-3333-3262-66616632623062383564-317d
-
+```
 ### flag{6ce6f6a15dddb0ebb332bfaf2b0b85d1}
 ---
 ## BaseFFFF+1
@@ -103,8 +106,9 @@ From hex: 666c6167-7b36-6365-3666-36613135646464623065-6262-3333-3262-6661663262
 To solve this challenge we first analyse what kind of file it is with the `file` command.
 We see it's a unicode text `baseffff1: Unicode text, UTF-8 text, with no line terminators` so lets see what's inside the file, we do that by using the cat command
 `cat baseffff1` and we get a string that have some very wierd characters in it.
-
-`鹎驣𔔠𓁯噫谠啥鹭鵧啴陨驶𒄠陬驹啤鹷鵴𓈠𒁯ꔠ𐙡啹院驳啳驨驲挮售𖠰筆筆鸠啳樶栵愵欠樵樳昫鸠啳樶栵嘶谠ꍥ啬𐙡𔕹𖥡唬驨驲鸠啳𒁹𓁵鬠陬潧㸍㸍ꍦ鱡汻欱靡驣洸鬰渰汢饣汣根騸饤杦样椶𠌸`
+```
+鹎驣𔔠𓁯噫谠啥鹭鵧啴陨驶𒄠陬驹啤鹷鵴𓈠𒁯ꔠ𐙡啹院驳啳驨驲挮售𖠰筆筆鸠啳樶栵愵欠樵樳昫鸠啳樶栵嘶谠ꍥ啬𐙡𔕹𖥡唬驨驲鸠啳𒁹𓁵鬠陬潧㸍㸍ꍦ鱡汻欱靡驣洸鬰渰汢饣汣根騸饤杦样椶𠌸
+```
 
 If you take the hexidecimal value of *FFFF* of the file name and decode it you get the number 65.535, and when you take the name of the file into account you can deduct that it might got something to do with 65.535+1.
 If you go Cyberchef you will see that it has an option to decode *base65536* 
@@ -123,8 +127,10 @@ To do this I used the `grep` command to search for any mentioning of this in the
 
 `grep -E sketchy *.log`
 
-The command reveals there are plenty of log intries about `ssl.03:00:00-03:53:19.log:1631072773.151055     CCczHL2a9zDFsSWjGd      10.24.0.2 61758    185.199.108.153 443     TLSv12  TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256   - sketchysite.github.io    T       -       -       T       CsiI    -       -       - -`
-
+The command reveals there are plenty of log intries about 
+```
+ssl.03:00:00-03:53:19.log:1631072773.151055     CCczHL2a9zDFsSWjGd      10.24.0.2 61758    185.199.108.153 443     TLSv12  TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256   - sketchysite.github.io    T       -       -       T       CsiI    -       -       - -`
+```
 So lets check the site out! When you get to the site you are presented with the flag.
 
 ### flag{8626fe7dcd8d412a80d0b3f0e36afd4a}
@@ -416,7 +422,8 @@ Take the UTF-8 encoded data and paste it into a windings translation
 "We found all this data in the dumpster! Can you find anything interesting in here, like any cool passwords or anything? Check it out quick before the foxes get to it!"
 
 Install firefox decrypt from "https://github.com/unode/firefox_decrypt"
-cd to "/home/goon/huntressctf/dumpsterfire/home/challenge/.mozilla/firefox/bc1m1zlr.default-release
+
+cd to the directory ".../huntressctf/dumpsterfire/home/challenge/.mozilla/firefox/bc1m1zlr.default-release
 "
 ```
 python3 firefox_decrypt.py ~/huntressctf/dumpsterfire/home/challenge/.mozilla/firefox/bc1m1zlr.default-release/
