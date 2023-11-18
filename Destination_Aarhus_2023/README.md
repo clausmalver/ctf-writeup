@@ -109,6 +109,7 @@ Welcome back Alice. Your stored secret is:
 
  HKN{wlerzQMwJIdhTm5WCWbSD} 
 ```
+`HKN{wlerzQMwJIdhTm5WCWbSD}`
 ## Operational Tech Quest - Medical device
 
 >*One of the primary challenges in OT security is the prevalence of weak and default passwords. Insecure credentials can lead to unauthorized access, potentially jeopardizing the integrity and safety of critical systems. As a cybersecurity expert, you've been tasked with investigating a breach of the ClinicPro EMR system, a medical device that stores sensitive patient information. Your mission is to identify the credentials and secure the system to prevent further data breaches. The format of the flag is as follows: HNK{username:password}. Good luck in your quest to secure the OT world and discover the hidden flags!"*
