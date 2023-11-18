@@ -97,9 +97,9 @@ Only our top secret browser is allowed to view the following material.
 ```
 A browser is also called a user-agent which from the pcap file we can see that user that accessed the site was using `BrowserAuth/9472.2843.8275.1753\r\n` as the user-agent.
 
-So lets change our user-agent in Firefox. We start by open a new tab and enter `about:config` in the top search bar enter `general.useragent.override`and set the value to a *string* and hit the + sign. Enter the value `BrowserAuth/9472.2843.8275.1753\r\n` which we got from the pcap file, and save the new value.
+So lets change our user-agent in Firefox. We start by open a new tab and enter `about:config` Next in the top search bar enter `general.useragent.override`and set the value to a *string* and hit the + sign. Enter the value `BrowserAuth/9472.2843.8275.1753\r\n` which we got from the pcap file, and save the new value.
 
-Go back to the other tab which said you weren't authorized to view the website hit the refresh button.
+Go back to the other tab which said you weren't authorized to view the website and hit the refresh button.
 
 The page will now show:
 ```
@@ -125,7 +125,7 @@ ClinicPro ClinicPro EMR Login Guide
 - Click [HERE](http://my-router-ip.192-168-1-1-ip.co/) to auto detect your router IP. After some seconds our tool will show a link to your router login page. Click on the shown link.
 - You should see 2 text fields where you can enter a username and a password. 
 - The default username for your ClinicPro ClinicPro EMR is admin.  
-    The default password is abc123.
+- The default password is abc123.
 - Enter the username & password, hit "Enter" and now you should see the control panel of your router.
 ```
 So from this info we can get the flag
@@ -137,7 +137,7 @@ So from this info we can get the flag
 
 In this challenge we are presented with a `How_is_it_going.svg.svg` file and from the description we should find some hidden message in the picture somewhere.
 
-When we run hexdump and scroll through the data, in the end of the file we are presented with the flag.
+When we run `hexdump -C How_is_it_going.svg.svg` and scroll through the data, at the end of the file we are presented with the flag.
 
 ```
 00000b40  0a 3c 67 20 69 64 3d 22  48 4b 4e 7b 77 30 6e 64  |.<g id="HKN{w0nd|
