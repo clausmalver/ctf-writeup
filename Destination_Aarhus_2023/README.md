@@ -1,5 +1,5 @@
 # Destination Aarhus CTF 2023
-A CTF event hosted in 4 major cities in Denmark. Odense, Aalborg, Copenhagen and Aarhus. The event was brought by Destination Aarhus, Systematic, Lego, Cyberskills.dk, De Danske Cybermesterskaber and Aalborg University.
+A CTF event hosted in 4 major cities in Denmark. Odense, Aalborg, Copenhagen and Aarhus. The event was created by Destination Aarhus, Systematic, Lego, Cyberskills.dk, De Danske Cybermesterskaber and Aalborg University.
 
 The CTF lasted 6 hours and it was encouraged that anyone with interest in cybersecurity should attend, no matter if the attendee was a complete beginner or a seasoned CTF player.
 
