@@ -6,7 +6,7 @@
 
 For this challenge you get a pcap file where it is hinted in the description that there have been captured a conversation between 2 people.
 
-When you view the pcap file in Wireshark the data field start with the hexadecimal value of `504b0304`which indicate that the data transferred is a zip file.
+When you view the pcap file in Wireshark the data field start with the hexadecimal value of `504b0304` which indicate that the data transferred is a zip file.
 
 The next step it to regenerate the zip file from the hexadecimal value for each of the total 12 packets. I got ChatGPT to create a quick python script that takes the hexadecimal value and convert it into binary and afterwards save the binary to a zip file.
 ```python
@@ -71,15 +71,16 @@ Afterwards its possible to view the file in an image viewer and you can read the
 The challenge also states that we should visit the website `http://browserauth.hkn/` in the haaukins instance.
 
 In this challenge we are presented with a pcap file. There are a total of 25 packets to analyze, but it doesn't take long before you notice a specific package containing a HTTP GET command.
-
-`4 0.004541 192.168.1.2	192.168.1.3	HTTP 387 GET /secrets/YWdlbnRfMDA3/flag HTTP/1.1`
-
+```
+4 0.004541 192.168.1.2	192.168.1.3	HTTP 387 GET /secrets/YWdlbnRfMDA3/flag HTTP/1.1
+```
 When we visit the website we are greeted with a standard webpage and some info.
-
 ```
-The time has come. Scrap your passwords, throw out your sticky notes and delete all your password managers. BrowserAuth is here to revolutionize the authentication industry. With ground breaking new technology, BrowserAuth can authenticate you based on your browser. Your browser becomes your key, which means no input fields and no password leaks. The future is here and it's more secure than ever. Don't take our word for it. See what our customers have to say: 
+The time has come. Scrap your passwords, throw out your sticky notes and delete all your password managers. 
+BrowserAuth is here to revolutionize the authentication industry. With ground breaking new technology, BrowserAuth can authenticate you based on your browser. 
+Your browser becomes your key, which means no input fields and no password leaks. 
+The future is here and it's more secure than ever. Don't take our word for it. See what our customers have to say: 
 ```
-
 From this text we can see that the challenge might have something to do with letting the browser do the authentication on some form of parameter.
 
 Lets take the info from the pcap file and go to `http://browserauth.hkn/secrets/YWdlbnRfMDA3/flag
@@ -88,7 +89,8 @@ We are yet again greeted with a message, this time an error message.
 ```
 Unauthorized
 
-It appears that you're using Firefox as your browser. Only our top secret browser is allowed to view the following material.
+It appears that you're using Firefox as your browser. 
+Only our top secret browser is allowed to view the following material.
 ```
 A browser is also called a user-agent which from the pcap file we can see that user that accessed the site was using `BrowserAuth/9472.2843.8275.1753\r\n` as the user-agent.
 
@@ -97,7 +99,6 @@ So lets change our user-agent in Firefox. We start by open a new tab and enter `
 Go back to the other tab which said you weren't authorized to view the website hit the refresh button.
 
 The page will now show:
-
 ```
 Access granted
 
@@ -149,9 +150,11 @@ This challenge is a simple riddle, find out what ICS stand for and insert it as 
 When you search for `Operational technology ICS`in Google, the first respond is:
 
 ```
-Industrial control systems (ICS) are a main component of operational technology**. ICS includes different types of devices, systems, controls, and networks that manage a variety of industrial processes. The most common are supervisory control and data acquisition (SCADA) systems and distributed control systems (DCS).
+Industrial control systems (ICS) are a main component of operational technology.
+ICS includes different types of devices, systems, controls, and networks that manage a variety of industrial processes. 
+The most common are supervisory control and data acquisition (SCADA) systems and distributed control systems (DCS).
 ```
 
-We can then assume that ICS stand for *Industrial Control Systems* - the difficult part of this challenge is to find how out how to format the flag. I just went through a lot of trial and error and eventually got the flag.
+We can then assume that ICS stand for *Industrial Control Systems* - the difficult part of this challenge is to find how out how to format the flag. I just went through some trial and error and eventually got the flag.
 
 `HKN{industrial_control_systems}`
