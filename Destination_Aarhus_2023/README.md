@@ -166,12 +166,14 @@ We can then assume that ICS stand for *Industrial Control Systems* - the difficu
 ## Mainframe Manipulator
 >Triangulation large-scale multiprocess mainframe computer location..
 
-In this challenge you are provided with the source code of the mainframe and a hauukins instance, where you can run the "mainframe-manipulator" `nc mainframe-manipulator.hkn 8080.`
+In this challenge we are provided with the source code of the mainframe and the hauukins instance, where you can run the *mainframe-manipulator* with the netcat command `nc mainframe-manipulator.hkn 8080.`
 
 We are also provide with 2 hints:
+
 Hint 1
 - Remember that an int i 4 bytes
 - INT [4]
+
 Hint 2
 - a (0x61)
 - b (0x62)
