@@ -166,7 +166,7 @@ We can then assume that ICS stand for *Industrial Control Systems* - the difficu
 ## Mainframe Manipulator
 >Triangulation large-scale multiprocess mainframe computer location..
 
-In this challenge we are provided with the source code of the mainframe and the hauukins instance, where you can run the *mainframe-manipulator* with the netcat command `nc mainframe-manipulator.hkn 8080.`
+In this challenge we are provided with the source code of the mainframe and the hauukins instance, where you can run the *mainframe-manipulator* with the netcat command `nc mainframe-manipulator.hkn 8080`.
 
 We are also provide with 2 hints:
 
@@ -224,7 +224,6 @@ void connect() {
     putchar(']');
     printf(" Authentication required!");
 }
-
 ```
 
 When you access the mainframe you are greeted with the following:
