@@ -3,7 +3,7 @@ A CTF event hosted in 4 major cities in Denmark. Odense, Aalborg, Copenhagen and
 
 The CTF lasted 6 hours and it was encouraged that anyone with interest in cybersecurity should attend, no matter if the attendee was a complete beginner or a seasoned CTF player.
 
-## Concealed Conversation
+## Concealed Conversation - Forensic
 
 > *I've been infiltrating and eavesdropping on this hackers' network in order to discover something that could help me escalate my privileges. These last packets seemed odd in comparison to the rest. I was hoping you could take a look.*
 
@@ -67,7 +67,7 @@ Afterwards its possible to view the file in an image viewer and you can read the
 
 `HKN{Flippity_Floppity}`
 
-## BrowserAuth
+## BrowserAuth - Web Security
 
 >*BrowserAuth the game changing passwordless authentication method without any vulnerabilities... or so they say. Let's prove them wrong. I've captured some interesting packages, that you could try to take a look at.*
 
@@ -107,10 +107,11 @@ Access granted
 
 Welcome back Alice. Your stored secret is:
 
- HKN{wlerzQMwJIdhTm5WCWbSD} 
+HKN{wlerzQMwJIdhTm5WCWbSD} 
 ```
 `HKN{wlerzQMwJIdhTm5WCWbSD}`
-## Operational Tech Quest - Medical device
+
+## Operational Tech Quest - Medical device - OSINT
 
 >*One of the primary challenges in OT security is the prevalence of weak and default passwords. Insecure credentials can lead to unauthorized access, potentially jeopardizing the integrity and safety of critical systems. As a cybersecurity expert, you've been tasked with investigating a breach of the ClinicPro EMR system, a medical device that stores sensitive patient information. Your mission is to identify the credentials and secure the system to prevent further data breaches. The format of the flag is as follows: HNK{username:password}. Good luck in your quest to secure the OT world and discover the hidden flags!"*
 
@@ -131,7 +132,8 @@ ClinicPro ClinicPro EMR Login Guide
 So from this info we can get the flag
 
 `HNK{admin:abc123}`
-## Undercover Messages
+
+## Undercover Messages - Forensic
 
 >*The European Department of Cybersecurity is working to discover new and secure methods of communication. They are experimenting with the use of images. Therefore, your hacker team has located one of their test images. However, we need to uncover the message they are sending. Download the picture and find it.*
 
@@ -146,7 +148,8 @@ When we run `hexdump -C How_is_it_going.svg.svg` and scroll through the data, at
 ```
 `HKN{w0nd3r1ng_wh4ts_h3r3}`
 
-## Operational Tech Quest
+## Operational Tech Quest - OSINT
+
 >What is Operational Technology (OT)? Operational Technology, commonly known as OT, refers to the hardware and software used to monitor and control physical processes, devices, and infrastructure in various industrial sectors. It plays a vital role in critical infrastructure, such as energy, manufacturing, and healthcare. Briefly Defined Components:  
 SCADA (Supervisory Control and Data Acquisition): A centralized control system used to manage and monitor industrial processes. PLC (Programmable Logic Controller): A specialized computer for industrial automation, used to control machinery and processes. RTU (Remote Terminal Unit): A device that connects remote sensors and controls to a central system. HMI (Human-Machine Interface): The interface between humans and machines, allowing operators to interact with industrial processes. In the realm of OT, you'll frequently encounter the term "ICS". Your first challenge is to uncover the hidden meaning behind "ICS".
 
@@ -163,7 +166,8 @@ We can then assume that ICS stand for *Industrial Control Systems* - the difficu
 
 `HKN{industrial_control_systems}`
 
-## Mainframe Manipulator
+## Mainframe Manipulator - Binary Exploitation
+
 >Triangulation large-scale multiprocess mainframe computer location..
 
 In this challenge we are provided with the source code of the mainframe and the hauukins instance, where you can run the *mainframe-manipulator* with the netcat command `nc mainframe-manipulator.hkn 8080`.
@@ -265,4 +269,5 @@ Access granted!
 HKN{y0u-4re-1n-th3-m4infr4m3}  
 ```
 The mainframe now returns the flag.
+
 `HKN{y0u-4re-1n-th3-m4infr4m3}`
